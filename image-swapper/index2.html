@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<style>
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+header > div { 
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <div class="display1">
+        <h2>Title1</h2>
+        <img src="https://picsum.photos/200/300?random=0" alt="">
+    </div>
+
+    <div class="display2">
+        <h2>Title2</h2>
+        <img src="https://picsum.photos/200/300?random=0" alt="">
+    </div>
+
+    <div class="display3">
+        <h2>Title3</h2>
+        <img src="https://picsum.photos/200/300?random=0" alt="">
+    </div>
+</header>
+
+<section>
+    <button>Swap</button>
+</section>
+
+<script>
+const image = [
+    {
+        title: 'image 1',
+        url: 'https://picsum.photos/200/300?random=0',
+    },
+
+    {
+        title: 'image 2',
+        url: 'https://picsum.photos/200/300?random=1',
+    },
+
+    {
+        title: 'image 3',
+        url: 'https://picsum.photos/200/300?random=2',
+    },
+
+    {
+        title: 'image 4',
+        url: 'https://picsum.photos/200/300?random=3',
+    }
+]
+
+const getImageID = () => {
+    const randomID = () => Math.floor(Math.random() * image.length)
+
+    imageOneID = randomID()
+    imageTwoID = randomID()
+
+    renderDisplay(imageOneID, '.display1')
+    renderDisplay(imageTwoID, '.display3')
+}
+
+const renderDisplay = (imageID, displayID) => {
+    console.log('image ID=>', imageID, 'diplayID => ', displayID)
+    
+    document.querySelector(`${displayID} h2`).innerHTML = image[imageID].title
+    document.querySelector(`${displayID} img`).src = image[imageID].url
+}
+
+document.querySelector('button')
+    .addEventListener('click',
+        () => getImageID(), false)
+</script>
+</body>
+</html>

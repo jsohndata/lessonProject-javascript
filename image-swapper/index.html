@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Swapper</title>
+
+
+</head>
+
+
+<body>
+<header>
+    <img class="display" src="" />
+</header>
+
+<main>
+    <button>Swap</button>
+</main>
+
+
+<script>
+    const image = [
+        'https://picsum.photos/200/300?random=1',
+        'https://picsum.photos/200/300?random=2',
+        'https://picsum.photos/200/300?random=3',
+        'https://picsum.photos/200/300?random=4',
+        'https://picsum.photos/200/300?random=6',
+        'https://picsum.photos/200/300?random=7',
+        'https://picsum.photos/200/300?random=8',
+        'https://picsum.photos/200/300?random=9',
+    ]
+
+    const getDisplay = imageID =>  {
+        imageID = imageID || Math.floor(Math.random() * image.length)        
+
+        document.querySelector('.display').src = image[imageID]
+    }
+
+    document.querySelector('button')
+        .addEventListener('click',
+            () => getDisplay(), false)
+            
+    getDisplay(0)
+    </script>
+</body>
+</html>
